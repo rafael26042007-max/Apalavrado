@@ -1,0 +1,20 @@
+{
+  "name": "apalavrado",
+  "version": "0.1.0",
+  "description": "Registre acordos informais confirmados pelas duas partes. Combinado é combinado.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "keywords": ["acordos", "combinados", "express"],
+  "author": "Rafael",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
