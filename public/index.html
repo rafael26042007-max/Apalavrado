@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apalavrado: combinado é combinado</title>
+  <meta name="description" content="Registre acordos informais confirmados pelas duas partes.">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="container">
+
+    <!-- ===== Cabeçalho ===== -->
+    <a class="topo" href="/">
+      <span class="logo-selo">A</span>
+      <span class="logo-nome">Apalavrado</span>
+    </a>
+
+    <!-- ===== Tela 1: formulário de criação ===== -->
+    <section id="tela-criar">
+      <h1>Combinado é combinado.</h1>
+      <p class="subtitulo">Escreva o que vocês combinaram, mande o link e a outra pessoa confirma. Fica registrado.</p>
+
+      <form id="form-criar" class="cartao" novalidate>
+        <div id="erros-criar" class="mensagem erro escondido"></div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="criador_nome">Seu nome</label>
+            <input id="criador_nome" name="criador_nome" maxlength="80" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="outra_parte_nome">Com quem?</label>
+            <input id="outra_parte_nome" name="outra_parte_nome" maxlength="80" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="titulo">Título</label>
+          <input id="titulo" name="titulo" maxlength="120" placeholder="Ex: Empréstimo pra consertar o carro" required>
+        </div>
+
+        <div class="campo">
+          <label for="descricao">O que foi combinado</label>
+          <textarea id="descricao" name="descricao" maxlength="2000" placeholder="Ex: Te empresto R$ 300 e você me devolve em 3 vezes de R$ 100, todo dia 10." required></textarea>
+        </div>
+
+        <div class="linha">
+          <div class="campo">
+            <label for="valor">Valor (R$) <span class="opcional">opcional</span></label>
+            <input id="valor" name="valor" inputmode="decimal" placeholder="300,00">
+          </div>
+          <div class="campo">
+            <label for="prazo">Prazo <span class="opcional">opcional</span></label>
+            <input id="prazo" name="prazo" type="date">
+          </div>
+        </div>
+
+        <button class="botao" type="submit" id="botao-criar">Criar combinado</button>
+      </form>
+    </section>
+
+    <!-- ===== Tela 2: combinado criado, mostra os links ===== -->
+    <section id="tela-criado" class="escondido">
+      <h1>Combinado criado!</h1>
+      <p class="subtitulo">Agora mande o link pra <strong id="nome-outra-parte"></strong> confirmar.</p>
+
+      <div class="cartao">
+        <div class="bloco-link">
+          <p><strong>Link de confirmação:</strong> mande este pra outra pessoa.</p>
+          <div class="copiar">
+            <input id="link-confirmacao" readonly>
+            <button class="botao secundario" type="button" data-copiar="link-confirmacao">Copiar</button>
+          </div>
+        </div>
+
+        <a id="botao-whatsapp" class="botao whatsapp" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+
+        <div class="bloco-link" style="margin-top: 24px;">
+          <p><strong>Seu link de acompanhamento:</strong> guarde, ele é só seu e mostra se já confirmaram.</p>
+          <div class="copiar">
+            <input id="link-criador" readonly>
+            <button class="botao secundario" type="button" data-copiar="link-criador">Copiar</button>
+          </div>
+        </div>
+
+        <a id="botao-acompanhar" class="botao secundario">Abrir meu combinado</a>
+      </div>
+    </section>
+
+    <p class="rodape">Apalavrado: leve como uma mensagem, confiável como um registro.</p>
+  </main>
+
+  <script src="/js/criar.js"></script>
+</body>
+</html>

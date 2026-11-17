@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combinado: Apalavrado</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main class="container">
+
+    <!-- ===== Cabeçalho ===== -->
+    <a class="topo" href="/">
+      <span class="logo-selo">A</span>
+      <span class="logo-nome">Apalavrado</span>
+    </a>
+
+    <!-- ===== Carregando / erro ===== -->
+    <p id="carregando" class="subtitulo">Carregando combinado...</p>
+    <div id="erro-geral" class="mensagem erro escondido"></div>
+
+    <!-- ===== Combinado ===== -->
+    <section id="tela-combinado" class="escondido">
+      <p id="aviso-criador" class="mensagem aviso escondido">
+        Você está vendo o seu link de criador. Não mande este link pra ninguém: mande o link de confirmação.
+      </p>
+
+      <article class="cartao">
+        <span id="status" class="status"></span>
+        <h1 id="titulo"></h1>
+        <p class="partes">
+          <span id="criador-nome"></span> <span>e</span> <span id="outra-parte-nome"></span>
+        </p>
+
+        <p id="descricao" class="descricao"></p>
+
+        <dl class="detalhes">
+          <div>
+            <dt>Valor</dt>
+            <dd id="valor">—</dd>
+          </div>
+          <div>
+            <dt>Prazo</dt>
+            <dd id="prazo">—</dd>
+          </div>
+        </dl>
+
+        <!-- Selo que aparece quando foi confirmado -->
+        <div id="selo" class="selo-confirmado escondido">
+          <span class="carimbo">APALAVRADO</span>
+        </div>
+
+        <!-- Área para a outra parte confirmar ou recusar -->
+        <div id="area-resposta" class="area-resposta escondido">
+          <div id="erro-resposta" class="mensagem erro escondido"></div>
+          <div class="campo">
+            <label for="nome-resposta">Seu nome</label>
+            <input id="nome-resposta" maxlength="80" autocomplete="name">
+          </div>
+          <div class="botoes">
+            <button id="botao-recusar" class="botao secundario" type="button">Recusar</button>
+            <button id="botao-confirmar" class="botao" type="button">Confirmo</button>
+          </div>
+        </div>
+
+        <!-- Para o criador: compartilhar enquanto está pendente -->
+        <div id="area-compartilhar" class="area-resposta escondido">
+          <div class="bloco-link">
+            <p><strong>Link de confirmação</strong> pra mandar pra outra pessoa:</p>
+            <div class="copiar">
+              <input id="link-confirmacao" readonly>
+              <button id="botao-copiar" class="botao secundario" type="button">Copiar</button>
+            </div>
+          </div>
+          <a id="botao-whatsapp" class="botao whatsapp" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+        </div>
+
+        <!-- Registro: datas e hash -->
+        <div class="registro">
+          <p id="linha-criado"></p>
+          <p id="linha-respondido" class="escondido"></p>
+          <p id="linha-integridade"></p>
+          <p>Impressão digital (SHA-256):<br><code id="hash"></code></p>
+        </div>
+      </article>
+    </section>
+
+    <p class="rodape">Apalavrado: combinado é combinado.</p>
+  </main>
+
+  <script src="/js/combinado.js"></script>
+</body>
+</html>

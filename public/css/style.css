@@ -1,0 +1,305 @@
+/* =============================================================
+   style.css — visual do Apalavrado
+   ============================================================= */
+
+/* -------------------------------------------------------------
+   1. Variáveis (cores, fontes, espaçamentos)
+   ------------------------------------------------------------- */
+:root {
+  --tinta: #1f2a37;        /* texto principal, cor de tinta de caneta */
+  --tinta-suave: #5b6675;
+  --papel: #faf7f2;        /* fundo, cor de papel */
+  --cartao: #ffffff;
+  --borda: #e6e0d6;
+  --selo: #b4532a;         /* cor de destaque, lacre de cera */
+  --selo-escuro: #8f3f1e;
+  --ok: #2f7d4f;
+  --ok-fundo: #e7f4ec;
+  --erro: #b42a3a;
+  --erro-fundo: #fbe9ec;
+  --aviso-fundo: #fdf3e1;
+
+  --raio: 14px;
+  --sombra: 0 1px 2px rgba(31, 42, 55, .06), 0 8px 24px rgba(31, 42, 55, .06);
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fonte-titulo: Georgia, "Times New Roman", serif;
+}
+
+/* -------------------------------------------------------------
+   2. Base
+   ------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  color: var(--tinta);
+  background: var(--papel);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 24px 18px 64px;
+}
+
+/* -------------------------------------------------------------
+   3. Cabeçalho
+   ------------------------------------------------------------- */
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-selo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--selo);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: var(--fonte-titulo);
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.logo-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 8px;
+}
+
+.subtitulo {
+  color: var(--tinta-suave);
+  margin: 0 0 24px;
+}
+
+/* -------------------------------------------------------------
+   4. Cartão e formulário
+   ------------------------------------------------------------- */
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 22px;
+}
+
+.campo { margin-bottom: 16px; }
+
+.linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.opcional {
+  font-weight: 400;
+  color: var(--tinta-suave);
+}
+
+input,
+textarea {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  padding: 11px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--selo);
+  box-shadow: 0 0 0 3px rgba(180, 83, 42, .15);
+}
+
+textarea { resize: vertical; min-height: 96px; }
+
+/* -------------------------------------------------------------
+   5. Botões
+   ------------------------------------------------------------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  font: inherit;
+  font-weight: 600;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--selo);
+  color: #fff;
+  transition: background .15s;
+}
+
+.botao:hover { background: var(--selo-escuro); }
+.botao:disabled { opacity: .6; cursor: wait; }
+
+.botao.secundario {
+  background: transparent;
+  color: var(--tinta);
+  border: 1px solid var(--borda);
+}
+.botao.secundario:hover { background: #f3efe8; }
+
+.botao.whatsapp { background: #1f9d55; }
+.botao.whatsapp:hover { background: #178345; }
+
+.botoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* -------------------------------------------------------------
+   6. Mensagens
+   ------------------------------------------------------------- */
+.mensagem {
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+.mensagem.erro { background: var(--erro-fundo); color: var(--erro); }
+.mensagem.ok { background: var(--ok-fundo); color: var(--ok); }
+.mensagem.aviso { background: var(--aviso-fundo); color: #7a4b0c; }
+.mensagem ul { margin: 0; padding-left: 18px; }
+
+.escondido { display: none !important; }
+
+/* -------------------------------------------------------------
+   7. Links gerados (depois de criar)
+   ------------------------------------------------------------- */
+.bloco-link { margin-bottom: 18px; }
+
+.bloco-link p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--tinta-suave);
+}
+
+.copiar {
+  display: flex;
+  gap: 8px;
+}
+.copiar input { font-size: 14px; background: #f8f6f1; }
+.copiar .botao { width: auto; white-space: nowrap; }
+
+/* -------------------------------------------------------------
+   8. Visualização do combinado
+   ------------------------------------------------------------- */
+.status {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.status.pendente { background: var(--aviso-fundo); color: #7a4b0c; }
+.status.confirmado { background: var(--ok-fundo); color: var(--ok); }
+.status.recusado { background: var(--erro-fundo); color: var(--erro); }
+
+.partes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--tinta-suave);
+  margin-bottom: 14px;
+}
+
+.descricao {
+  white-space: pre-wrap;
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  margin: 0 0 18px;
+}
+
+.detalhes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-top: 1px dashed var(--borda);
+  padding-top: 14px;
+  margin: 0 0 6px;
+}
+.detalhes dt { font-size: 13px; color: var(--tinta-suave); }
+.detalhes dd { margin: 0; font-weight: 600; }
+
+.registro {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--tinta-suave);
+}
+.registro code {
+  word-break: break-all;
+  font-size: 12px;
+}
+
+.selo-confirmado {
+  text-align: center;
+  padding: 18px 0 4px;
+}
+.selo-confirmado .carimbo {
+  display: inline-block;
+  border: 3px solid var(--ok);
+  color: var(--ok);
+  font-family: var(--fonte-titulo);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 6px 18px;
+  border-radius: 8px;
+  transform: rotate(-4deg);
+}
+
+.area-resposta { margin-top: 22px; }
+
+/* -------------------------------------------------------------
+   9. Rodapé
+   ------------------------------------------------------------- */
+.rodape {
+  text-align: center;
+  font-size: 13px;
+  color: var(--tinta-suave);
+  margin-top: 28px;
+}
+
+/* -------------------------------------------------------------
+   10. Celular
+   ------------------------------------------------------------- */
+@media (max-width: 480px) {
+  h1 { font-size: 26px; }
+  .linha,
+  .detalhes { grid-template-columns: 1fr; }
+}
